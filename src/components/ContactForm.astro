@@ -1,0 +1,85 @@
+---
+interface Props {
+  id?: string;
+}
+
+const { id = "contact" } = Astro.props;
+---
+
+<form
+  class="contact-form"
+  id={`${id}-form`}
+  action="#"
+  method="post"
+  novalidate
+>
+  <div class="field">
+    <label for={`${id}-name`}>Name</label>
+    <input
+      type="text"
+      id={`${id}-name`}
+      name="name"
+      placeholder="Your name"
+      autocomplete="name"
+      required
+    />
+  </div>
+  <div class="field">
+    <label for={`${id}-email`}>Email</label>
+    <input
+      type="email"
+      id={`${id}-email`}
+      name="email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      required
+    />
+  </div>
+  <div class="field">
+    <label for={`${id}-type`}>What do you need?</label>
+    <select id={`${id}-type`} name="type" required>
+      <option value="">Select an option</option>
+      <option value="project">UX/UI Design Project</option>
+      <option value="consulting">Consulting</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  <div class="field">
+    <label for={`${id}-message`}>Message</label>
+    <textarea
+      id={`${id}-message`}
+      name="message"
+      placeholder="Tell me about your project or what you're looking for..."
+      rows="4"
+      required
+    ></textarea>
+  </div>
+  <button type="submit" class="btn btn--primary">Send message</button>
+</form>
+<p class="form-note">
+  Placeholder form — contact integration coming soon.
+</p>
+<p class="form-success" id={`${id}-success`} hidden role="status">
+  Thanks for reaching out. I'll get back to you soon.
+</p>
+
+<script define:vars={{ formId: `${id}-form`, successId: `${id}-success` }}>
+  const form = document.getElementById(formId);
+  const success = document.getElementById(successId);
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const email = form.querySelector('input[type="email"]');
+    if (email instanceof HTMLInputElement && !email.checkValidity()) {
+      email.reportValidity();
+      return;
+    }
+
+    form.reset();
+    if (success) {
+      success.hidden = false;
+    }
+  });
+</script>

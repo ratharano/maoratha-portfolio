@@ -8,7 +8,7 @@ Minimal personal portfolio and digital garden for **Mao Ratha**. The site has th
 
 1. Educate visitors on Mao Ratha's background as a Senior UX/UI Designer and Leader.
 2. Provide a local-first publishing space for written thoughts.
-3. Get visitors to join a weekly newsletter.
+3. Enable visitors to contact Mao Ratha for UX/UI projects or consulting.
 
 This is a static content site. It is not a startup app, CMS, or complex frontend experiment.
 
@@ -89,9 +89,9 @@ All dynamic content must use Astro Content Collections. Do not use TypeScript ar
 - **Thoughts:** add or edit `src/content/thoughts/*.md`
 - **Page copy:** `src/pages/*.astro` for narrative sections not in Markdown
 
-### Newsletter form
+### Contact form
 
-- Component: `src/components/NewsletterForm.astro`
+- Component: `src/components/ContactForm.astro`
 - **No backend** — submit is prevented client-side; success message is shown
 
 ### Production URL / canonical / Open Graph

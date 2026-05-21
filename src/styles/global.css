@@ -477,6 +477,84 @@ section:first-of-type {
   opacity: 0.85;
 }
 
+/* Contact */
+.contact {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding-block: var(--space-5xl);
+}
+
+.contact .label {
+  color: var(--color-accent);
+}
+
+.contact h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.contact .lead {
+  margin-bottom: var(--space-2xl);
+  opacity: 0.85;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 32rem;
+}
+
+.contact-form label {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid var(--color-white);
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-body);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.contact-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-lg) center;
+  padding-right: var(--space-3xl);
+}
+
+.contact-form select option {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.contact .btn--primary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
 .newsletter-form {
   display: flex;
   flex-direction: column;

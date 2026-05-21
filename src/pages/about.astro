@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import NewsletterForm from "../components/NewsletterForm.astro";
+import ContactForm from "../components/ContactForm.astro";
 ---
 
 <BaseLayout
@@ -48,16 +48,6 @@ import NewsletterForm from "../components/NewsletterForm.astro";
                 Founded and scaled an education platform for independent
                 creators—courses, community, and frameworks for sustainable
                 growth.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="period">2015 — Present</span>
-            <div>
-              <strong>The Weekly Dispatch</strong>
-              <p>
-                Writes and publishes a weekly newsletter on entrepreneurship,
-                media, and the craft of building.
               </p>
             </div>
           </li>
@@ -120,14 +110,14 @@ import NewsletterForm from "../components/NewsletterForm.astro";
     </div>
   </section>
 
-  <section class="newsletter" id="newsletter">
+  <section class="contact" id="contact">
     <div class="container">
-      <span class="label">Newsletter</span>
-      <h2>Stay in the loop</h2>
+      <span class="label">Contact</span>
+      <h2>Get in touch</h2>
       <p class="lead">
-        Join thousands of readers who get one thoughtful email each week.
+        Have a project in mind or need consulting? Let's talk.
       </p>
-      <NewsletterForm id="about-newsletter" />
+      <ContactForm id="about-contact" />
     </div>
   </section>
 </BaseLayout>

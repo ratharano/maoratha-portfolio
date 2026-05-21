@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NewsletterForm from '../components/NewsletterForm.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { withBase } from '../utils/paths';
 
 const projects = (await getCollection('projects'))
@@ -24,7 +24,7 @@ const projects = (await getCollection('projects'))
           share what I learn in public.
         </p>
         <div class="hero__actions">
-          <a href="#newsletter" class="btn btn--primary">Join the newsletter</a>
+          <a href="#contact" class="btn btn--primary">Get in touch</a>
           <a href={withBase('/about')} class="hero__link">About me →</a>
         </div>
       </div>
@@ -55,8 +55,7 @@ const projects = (await getCollection('projects'))
       </p>
       <p>
         This site is a snapshot of that work. Deeper writing lives in
-        <a href={withBase('/thoughts')}>Thoughts</a>; the weekly conversation
-        happens in my newsletter.
+        <a href={withBase('/thoughts')}>Thoughts</a>.
       </p>
     </div>
   </section>
@@ -87,15 +86,14 @@ const projects = (await getCollection('projects'))
     </div>
   </section>
 
-  <section class="newsletter" id="newsletter">
+  <section class="contact" id="contact">
     <div class="container">
-      <span class="label">Newsletter</span>
-      <h2>The Weekly Dispatch</h2>
+      <span class="label">Contact</span>
+      <h2>Let's work together</h2>
       <p class="lead">
-        One email a week on design, product, and the craft of building. No fluff.
-        No funnels. Just signal.
+        Have a UX/UI project or need consulting? I'd love to hear about it.
       </p>
-      <NewsletterForm />
+      <ContactForm />
     </div>
   </section>
 </BaseLayout>
