@@ -180,7 +180,8 @@ Node **22.12+** required (`package.json` `engines`).
 |---------|--------|
 | Build command | `npm run build` |
 | Output directory | `dist` |
-| Node version | 22+ |
+| Deploy command | **Empty** — never `npx wrangler deploy` for this static site |
+| Node version | 22+ (`.nvmrc`, `NODE_VERSION=22`, Build System v3) |
 
 ## Accessibility & SEO
 
