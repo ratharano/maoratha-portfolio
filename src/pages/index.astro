@@ -10,14 +10,29 @@ import { featuredProjects } from "../data/projects";
   ogTitle="Mao Ratha — Writer, Creator, Builder"
 >
   <section class="hero">
-    <div class="container">
-      <p class="label">Writer · Creator · Builder</p>
-      <h1>Build things that matter.</h1>
-      <p class="lead">
-        I help independent creators turn ideas into income—through courses,
-        media, and frameworks built for the long game.
-      </p>
-      <a href="#newsletter" class="btn btn--outline">Join the newsletter</a>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="label hero__label">Writer · Creator · Builder</p>
+        <h1>Build things that <span class="hero__accent">matter.</span></h1>
+        <p class="lead">
+          I help independent creators turn ideas into income—through courses,
+          media, and frameworks built for the long game.
+        </p>
+        <div class="hero__actions">
+          <a href="#newsletter" class="btn btn--primary">Join the newsletter</a>
+          <a href="/about" class="hero__link">About me →</a>
+        </div>
+      </div>
+      <figure class="hero__media">
+        <img
+          src="/Ratha.png"
+          alt="Portrait of Mao Ratha"
+          width="1286"
+          height="2908"
+          loading="eager"
+          decoding="async"
+        />
+      </figure>
     </div>
   </section>
 
@@ -27,7 +42,7 @@ import { featuredProjects } from "../data/projects";
         <span class="label">Positioning</span>
         <h2>Clarity over complexity.</h2>
       </div>
-      <p class="about-intro">
+      <p class="about-intro pull-quote">
         For over a decade, I've worked at the intersection of content,
         entrepreneurship, and education. I believe the best work is simple,
         honest, and built to last—whether that's a newsletter, a course, or a

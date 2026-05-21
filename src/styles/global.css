@@ -250,16 +250,112 @@ section:first-of-type {
 
 /* Hero */
 .hero {
-  padding-block: var(--space-5xl) var(--space-4xl);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  padding-block: var(--space-5xl);
+  border-bottom: 4px solid var(--color-accent);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-3xl);
+  align-items: end;
+}
+
+@media (min-width: 48rem) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 22vw);
+    gap: var(--space-4xl);
+    align-items: center;
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.15fr) 20rem;
+    gap: var(--space-5xl);
+  }
+}
+
+.hero__label {
+  display: inline-block;
+  margin-bottom: var(--space-xl);
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-accent);
 }
 
 .hero h1 {
-  max-width: 14ch;
+  max-width: 12ch;
   margin-bottom: var(--space-xl);
+}
+
+.hero__accent {
+  color: var(--color-accent);
 }
 
 .hero .lead {
   margin-bottom: var(--space-2xl);
+  opacity: 0.9;
+  max-width: 40ch;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xl) var(--space-2xl);
+}
+
+.hero__link {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-white);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.hero__link:hover {
+  color: var(--color-accent);
+}
+
+.hero__media {
+  margin: 0;
+  max-width: 11rem;
+  margin-inline: auto;
+  background-color: var(--color-black);
+}
+
+@media (min-width: 48rem) {
+  .hero__media {
+    max-width: none;
+    margin-inline: 0;
+    justify-self: end;
+    align-self: end;
+  }
+}
+
+.hero__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero .btn--primary:hover {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Pull quote */
+.pull-quote {
+  font-size: var(--text-xl);
+  line-height: 1.45;
+  padding-left: var(--space-xl);
+  border-left: 3px solid var(--color-accent);
+  max-width: 52ch;
 }
 
 /* Projects */
