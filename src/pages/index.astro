@@ -1,0 +1,78 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+import { featuredProjects } from "../data/projects";
+---
+
+<BaseLayout
+  title="Mao Ratha"
+  description="Writer, creator, and builder. Mao Ratha helps independent creators build sustainable businesses through education, media, and practical frameworks."
+  ogTitle="Mao Ratha — Writer, Creator, Builder"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="label">Writer · Creator · Builder</p>
+      <h1>Build things that matter.</h1>
+      <p class="lead">
+        I help independent creators turn ideas into income—through courses,
+        media, and frameworks built for the long game.
+      </p>
+      <a href="#newsletter" class="btn btn--outline">Join the newsletter</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Positioning</span>
+        <h2>Clarity over complexity.</h2>
+      </div>
+      <p class="about-intro">
+        For over a decade, I've worked at the intersection of content,
+        entrepreneurship, and education. I believe the best work is simple,
+        honest, and built to last—whether that's a newsletter, a course, or a
+        conversation that changes how someone thinks.
+      </p>
+      <p>
+        This site is a snapshot of that work. The real conversation happens
+        every week in my newsletter.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Selected work</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="project-preview-grid">
+        {
+          featuredProjects.map((project) => (
+            <article class="project-preview">
+              <h3>
+                <a href="/projects">{project.title}</a>
+              </h3>
+              <p>{project.description}</p>
+            </article>
+          ))
+        }
+      </div>
+      <p class="mt-3xl">
+        <a href="/projects" class="text-link">View all projects</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <span class="label">Newsletter</span>
+      <h2>The Weekly Dispatch</h2>
+      <p class="lead">
+        One email a week on entrepreneurship, media, and the craft of building.
+        No fluff. No funnels. Just signal.
+      </p>
+      <NewsletterForm />
+    </div>
+  </section>
+</BaseLayout>

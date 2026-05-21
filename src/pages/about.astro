@@ -1,0 +1,133 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NewsletterForm from "../components/NewsletterForm.astro";
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Mao Ratha—writer, creator, and builder helping independent creators build sustainable businesses."
+>
+  <header class="page-header">
+    <div class="container">
+      <p class="label">About</p>
+      <h1>Mao Ratha</h1>
+      <p class="lead">
+        Writer, creator, and builder at the intersection of media,
+        entrepreneurship, and education.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="content-block">
+        <h2>Biography</h2>
+        <p>
+          Mao Ratha is a writer and entrepreneur who has spent the last
+          decade building at the intersection of content and commerce. What
+          started as a side project—a weekly newsletter and a handful of
+          podcast episodes—grew into a studio serving tens of thousands of
+          independent creators.
+        </p>
+        <p>
+          Their work spans education, media, and digital products. Mao is known
+          for a direct voice, minimal design sensibility, and a bias toward
+          shipping over strategizing. They live and work remotely, splitting
+          time between writing, building, and long walks without headphones.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h2>Experience</h2>
+        <ul class="experience-list">
+          <li>
+            <span class="period">2018 — Present</span>
+            <div>
+              <strong>Creator Lab</strong>
+              <p>
+                Founded and scaled an education platform for independent
+                creators—courses, community, and frameworks for sustainable
+                growth.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="period">2015 — Present</span>
+            <div>
+              <strong>The Weekly Dispatch</strong>
+              <p>
+                Writes and publishes a weekly newsletter on entrepreneurship,
+                media, and the craft of building.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="period">2016 — 2022</span>
+            <div>
+              <strong>Podcast Network</strong>
+              <p>
+                Hosted and produced 200+ long-form interviews with founders,
+                writers, and builders.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="period">2012 — 2016</span>
+            <div>
+              <strong>Early career</strong>
+              <p>
+                Content marketing, freelance writing, and the slow discovery
+                that teaching scales better than trading time for money.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-block">
+        <h2>Principles</h2>
+        <ul class="principles-list">
+          <li>
+            <strong>Ship over strategize</strong>
+            <p>
+              Momentum beats perfection. The best way to learn what works is to
+              put something in front of real people.
+            </p>
+          </li>
+          <li>
+            <strong>Clarity is a feature</strong>
+            <p>
+              Simple language, clean design, and honest positioning aren't
+              compromises—they're competitive advantages.
+            </p>
+          </li>
+          <li>
+            <strong>Build for the long game</strong>
+            <p>
+              Audience, reputation, and craft compound over years. Optimize for
+              trust, not transactions.
+            </p>
+          </li>
+          <li>
+            <strong>Own your distribution</strong>
+            <p>
+              Email lists, owned products, and direct relationships matter more
+              than algorithmic reach.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <span class="label">Newsletter</span>
+      <h2>Stay in the loop</h2>
+      <p class="lead">
+        Join thousands of readers who get one thoughtful email each week.
+      </p>
+      <NewsletterForm id="about-newsletter" />
+    </div>
+  </section>
+</BaseLayout>

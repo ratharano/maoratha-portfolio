@@ -1,0 +1,25 @@
+---
+const year = new Date().getFullYear();
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="label">© {year} Mao Ratha</p>
+    <nav aria-label="Footer navigation">
+      <ul>
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</footer>
