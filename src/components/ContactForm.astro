@@ -35,7 +35,7 @@ const { id = "contact" } = Astro.props;
       required
     />
   </div>
-  <div class="field">
+  <div class="field field-full">
     <label for={`${id}-type`}>What do you need?</label>
     <select id={`${id}-type`} name="type" required>
       <option value="">Select an option</option>
@@ -44,17 +44,19 @@ const { id = "contact" } = Astro.props;
       <option value="other">Other</option>
     </select>
   </div>
-  <div class="field">
+  <div class="field field-full">
     <label for={`${id}-message`}>Message</label>
     <textarea
       id={`${id}-message`}
       name="message"
       placeholder="Tell me about your project or what you're looking for..."
-      rows="4"
+      rows="3"
       required
     ></textarea>
   </div>
-  <button type="submit" class="btn btn--primary">Send message</button>
+  <div class="field-full">
+    <button type="submit" class="btn btn--primary">Send message</button>
+  </div>
 </form>
 <p class="form-note">
   Placeholder form — contact integration coming soon.
