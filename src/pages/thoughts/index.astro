@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/paths';
+
+const thoughts = (await getCollection('thoughts')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const formatDate = (date: Date) =>
+  date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+---
+
+<BaseLayout
+  title="Thoughts"
+  description="Writing on design, product, and building in public by Mao Ratha."
+>
+  <header class="page-header">
+    <div class="container">
+      <p class="label">Writing</p>
+      <h1>Thoughts</h1>
+      <p class="lead">
+        Notes on UX, leadership, and local-first publishing—a digital garden in
+        progress.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <ul class="thought-list">
+        {
+          thoughts.map((entry) => (
+            <li class="thought-item">
+              <article>
+                <h2>
+                  <a href={withBase(`/thoughts/${entry.id}/`)}>
+                    {entry.data.title}
+                  </a>
+                </h2>
+                <p class="muted">
+                  <time datetime={entry.data.date.toISOString()}>
+                    {formatDate(entry.data.date)}
+                  </time>
+                </p>
+                {entry.data.tags.length > 0 && (
+                  <ul class="tag-list" aria-label="Tags">
+                    {entry.data.tags.map((tag) => (
+                      <li>{tag}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

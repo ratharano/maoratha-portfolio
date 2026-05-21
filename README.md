@@ -1,14 +1,15 @@
-# Mao Ratha — Portfolio
+# Mao Ratha — Portfolio & Digital Garden
 
-A minimalist personal portfolio built with Astro. Static output, plain CSS, no frameworks.
+A minimalist personal portfolio and digital garden built with Astro. Static output, local Markdown content, plain CSS.
 
 **For AI agents and maintainers:** see [AGENTS.md](./AGENTS.md) for full project documentation.
 
 ## Pages
 
-- **Home** — Hero, positioning, project preview, newsletter signup
+- **Home** — Hero, positioning, project preview, newsletter
 - **About** — Biography, experience, principles
-- **Projects** — Selected work showcase
+- **Projects** — Case studies from `src/content/projects/`
+- **Thoughts** — Writing from `src/content/thoughts/`
 
 ## Commands
 
@@ -19,35 +20,24 @@ A minimalist personal portfolio built with Astro. Static output, plain CSS, no f
 | `npm run build`   | Build static site to `./dist/`      |
 | `npm run preview` | Preview production build locally    |
 
-## Deploy to Cloudflare Pages
-
-Connect this repository in the Cloudflare dashboard (Workers & Pages → Create → Connect to Git).
-
-| Setting | Value |
-|--------|--------|
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| **Deploy command** | **Leave empty** (do not use `npx wrangler deploy`) |
-| Production branch | `main` |
-| Environment variable | `NODE_VERSION` = `22` |
-
-Use **Build System Version 3** (Settings → Builds) so Node 22 is available. The repo also includes `.nvmrc` and `.node-version` for the same version.
-
-After `npm run build` succeeds, Cloudflare publishes `dist` automatically. A custom deploy command is only for Workers-style projects and will fail on this static Astro site.
-
-Update `site` in `astro.config.mjs` with your production URL for canonical and Open Graph links.
-
 ## Content
 
-Placeholder copy lives in:
+- `src/content/projects/*.md` — project case studies
+- `src/content/thoughts/*.md` — articles and notes
+- `src/pages/` — page shells and static copy
 
-- `src/pages/` — page content
-- `src/data/projects.ts` — project listings
+## Deploy to GitHub Pages
 
-Replace placeholder text and add real images as needed.
+1. Push to `main` on GitHub.
+2. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. The workflow `.github/workflows/deploy.yml` builds and publishes `dist`.
+
+Live URL: `https://maoratha.github.io/maoratha-portfolio/`
+
+`astro.config.mjs` sets `site` and `base` for this subpath. Update both if you use a custom domain or change the repo name.
 
 ## Tech
 
-- [Astro](https://astro.build) (static site generation)
+- [Astro](https://astro.build) (static site generation, content collections)
 - Plain CSS (`src/styles/global.css`)
 - Fonts: Switzer (body), Khand (headings) via [Fontshare](https://fontshare.com)

@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { withBase } from '../../utils/paths';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected design and product work by Mao Ratha—UX/UI leadership, education, media, and digital products."
+>
+  <header class="page-header">
+    <div class="container">
+      <p class="label">Work</p>
+      <h1>Projects</h1>
+      <p class="lead">
+        Case studies across design, education, and product—built for clarity and
+        long-term impact.
+      </p>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="project-grid">
+        {
+          projects.map((project) => (
+            <article class="project-card project-card--featured">
+              <div
+                class="project-image"
+                role="img"
+                aria-label={`${project.data.title} placeholder`}
+              />
+              <div>
+                <h3>
+                  <a href={withBase(`/projects/${project.id}/`)}>
+                    {project.data.title}
+                  </a>
+                </h3>
+                <p>{project.data.description}</p>
+                <dl class="project-meta">
+                  <div>
+                    <dt>Role</dt>
+                    <dd>{project.data.role}</dd>
+                  </div>
+                  <div>
+                    <dt>Outcome</dt>
+                    <dd>{project.data.outcome}</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,8 +1,11 @@
 ---
+import { withBase } from '../utils/paths';
+
 const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
+  { href: withBase('/'), label: 'Home' },
+  { href: withBase('/about'), label: 'About' },
+  { href: withBase('/projects'), label: 'Projects' },
+  { href: withBase('/thoughts'), label: 'Thoughts' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -10,25 +13,23 @@ const currentPath = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container">
-    <a href="/" class="site-logo">Mao Ratha</a>
+    <a href={withBase('/')} class="site-logo">Mao Ratha</a>
     <nav class="site-nav" aria-label="Main navigation">
       <ul>
         {
-          navItems.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                aria-current={
-                  currentPath === item.href ||
-                  (item.href !== "/" && currentPath.startsWith(item.href))
-                    ? "page"
-                    : undefined
-                }
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
+          navItems.map((item) => {
+            const itemPath = new URL(item.href, Astro.url).pathname;
+            const isActive =
+              currentPath === itemPath ||
+              (itemPath !== withBase('/') && currentPath.startsWith(itemPath));
+            return (
+              <li>
+                <a href={item.href} aria-current={isActive ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </nav>

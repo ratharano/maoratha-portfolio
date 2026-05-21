@@ -1,31 +1,36 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import NewsletterForm from "../components/NewsletterForm.astro";
-import { featuredProjects } from "../data/projects";
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { withBase } from '../utils/paths';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
 ---
 
 <BaseLayout
   title="Mao Ratha"
-  description="Writer, creator, and builder. Mao Ratha helps independent creators build sustainable businesses through education, media, and practical frameworks."
-  ogTitle="Mao Ratha — Writer, Creator, Builder"
+  description="Senior UX/UI Designer and leader. Mao Ratha builds clear products, publishes thoughtful writing, and helps creators through education and media."
+  ogTitle="Mao Ratha — UX/UI Designer & Leader"
 >
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__content">
-        <p class="label hero__label">Writer · Creator · Builder</p>
+        <p class="label hero__label">UX/UI Designer · Leader · Builder</p>
         <h1>Build things that <span class="hero__accent">matter.</span></h1>
         <p class="lead">
-          I help independent creators turn ideas into income—through courses,
-          media, and frameworks built for the long game.
+          I design products and systems that stay simple under pressure—then
+          share what I learn in public.
         </p>
         <div class="hero__actions">
           <a href="#newsletter" class="btn btn--primary">Join the newsletter</a>
-          <a href="/about" class="hero__link">About me →</a>
+          <a href={withBase('/about')} class="hero__link">About me →</a>
         </div>
       </div>
       <figure class="hero__media">
         <img
-          src="/Ratha.png"
+          src={`${import.meta.env.BASE_URL}Ratha.png`}
           alt="Portrait of Mao Ratha"
           width="1286"
           height="2908"
@@ -43,14 +48,15 @@ import { featuredProjects } from "../data/projects";
         <h2>Clarity over complexity.</h2>
       </div>
       <p class="about-intro pull-quote">
-        For over a decade, I've worked at the intersection of content,
-        entrepreneurship, and education. I believe the best work is simple,
-        honest, and built to last—whether that's a newsletter, a course, or a
-        conversation that changes how someone thinks.
+        For over a decade, I've worked at the intersection of design,
+        product, and education. I believe the best work is simple, honest, and
+        built to last—whether that's an interface, a case study, or a note in
+        the garden.
       </p>
       <p>
-        This site is a snapshot of that work. The real conversation happens
-        every week in my newsletter.
+        This site is a snapshot of that work. Deeper writing lives in
+        <a href={withBase('/thoughts')}>Thoughts</a>; the weekly conversation
+        happens in my newsletter.
       </p>
     </div>
   </section>
@@ -63,18 +69,20 @@ import { featuredProjects } from "../data/projects";
       </div>
       <div class="project-preview-grid">
         {
-          featuredProjects.map((project) => (
+          projects.map((project) => (
             <article class="project-preview">
               <h3>
-                <a href="/projects">{project.title}</a>
+                <a href={withBase(`/projects/${project.id}/`)}>
+                  {project.data.title}
+                </a>
               </h3>
-              <p>{project.description}</p>
+              <p>{project.data.description}</p>
             </article>
           ))
         }
       </div>
       <p class="mt-3xl">
-        <a href="/projects" class="text-link">View all projects</a>
+        <a href={withBase('/projects')} class="text-link">View all projects</a>
       </p>
     </div>
   </section>
@@ -84,8 +92,8 @@ import { featuredProjects } from "../data/projects";
       <span class="label">Newsletter</span>
       <h2>The Weekly Dispatch</h2>
       <p class="lead">
-        One email a week on entrepreneurship, media, and the craft of building.
-        No fluff. No funnels. Just signal.
+        One email a week on design, product, and the craft of building. No fluff.
+        No funnels. Just signal.
       </p>
       <NewsletterForm />
     </div>
