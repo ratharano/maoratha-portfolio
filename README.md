@@ -32,7 +32,7 @@ A minimalist personal portfolio and digital garden built with Astro. Static outp
 2. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 3. The workflow `.github/workflows/deploy.yml` builds and publishes `dist`.
 
-Live URL: `https://maoratha.github.io/maoratha-portfolio/`
+Live URL: `https://ratharano.github.io/maoratha-portfolio/`
 
 `astro.config.mjs` sets `site` and `base` for this subpath. Update both if you use a custom domain or change the repo name.
 

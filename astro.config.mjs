@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://maoratha.github.io',
-  base: '/maoratha-portfolio',
+  site: 'https://ratharano.github.io',
+  base: '/maoratha-portfolio/',
   output: 'static',
 });

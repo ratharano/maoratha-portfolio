@@ -18,7 +18,7 @@ This is a static content site. It is not a startup app, CMS, or complex frontend
 |------|--------|
 | Site owner | **Mao Ratha** |
 | Display name | Mao Ratha (header logo, footer, page titles) |
-| Production URL | `https://maoratha.github.io/maoratha-portfolio` (or custom domain) |
+| Production URL | `https://ratharano.github.io/maoratha-portfolio/` (or custom domain) |
 
 All visible name references use **Mao Ratha**. Do not reintroduce previous placeholder names.
 
