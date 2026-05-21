@@ -21,10 +21,16 @@ A minimalist personal portfolio built with Astro. Static output, plain CSS, no f
 
 ## Deploy to Cloudflare Pages
 
-1. Connect this repository to Cloudflare Pages
-2. Build command: `npm run build`
-3. Build output directory: `dist`
-4. Node version: 22 or later
+Connect this repository in the Cloudflare dashboard (Workers & Pages → Create → Connect to Git).
+
+| Setting | Value |
+|--------|--------|
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| Production branch | `main` |
+| Environment variable | `NODE_VERSION` = `22` |
+
+Use **Build System Version 3** (Settings → Builds) so Node 22 is available. The repo also includes `.nvmrc` and `.node-version` for the same version.
 
 Update `site` in `astro.config.mjs` with your production URL for canonical and Open Graph links.
 
