@@ -131,7 +131,9 @@ All dynamic content must use Astro Content Collections. Do not use TypeScript ar
 
 ### Production URL / canonical / Open Graph
 
-- `astro.config.mjs` → `site` and `base` for GitHub Pages (`/maoratha-portfolio`)
+- `astro.config.mjs` → `site` and `base` (configured via `ASTRO_BASE` environment variable)
+- GitHub Pages: `ASTRO_BASE=/maoratha-portfolio/` (set in GitHub Actions)
+- Cloudflare Pages: `ASTRO_BASE` unset (defaults to `/` for root deployment)
 - `BaseLayout.astro` builds canonical and `og:url` from `Astro.site` and current path
 
 ## Commands
@@ -145,16 +147,30 @@ npm run preview  # Preview production build (use base path)
 
 Node **22.12+** required (`package.json` `engines`).
 
-## Deployment (GitHub Pages)
+## Deployment
+
+### GitHub Pages
 
 | Setting | Value |
 |---------|--------|
 | Host | GitHub Pages |
 | Build command | `npm run build` |
 | Output directory | `dist` |
+| Environment variable | `ASTRO_BASE=/maoratha-portfolio/` (set in workflow) |
 | Automation | GitHub Actions (`.github/workflows/deploy.yml`) |
 
 Enable **Settings → Pages → Source: GitHub Actions** on the repository.
+
+### Cloudflare Pages
+
+| Setting | Value |
+|---------|--------|
+| Host | Cloudflare Pages |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Environment variable | None (defaults to `/` for root deployment) |
+
+Connect repository in Cloudflare Pages dashboard. No additional configuration needed.
 
 ## Accessibility & SEO
 
