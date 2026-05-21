@@ -32,41 +32,6 @@ All visible name references use **Mao Ratha**. Do not reintroduce previous place
 | Styling | Plain CSS | `src/styles/global.css`. FOSS tools only. No Tailwind or CSS-in-JS |
 | JavaScript | Minimal | Client-side only when absolutely required |
 
-## Design system
-
-### Aesthetic
-
-- Clean, bold, minimal, editorial, typography-driven
-- Prioritize whitespace, hierarchy, alignment, contrast
-
-### Colors
-
-- White: `#ffffff`
-- Black: `#000000`
-- Accent: Red `#e60000` — use sparingly
-- No gradients, glassmorphism, or heavy shadows
-
-### Typography
-
-Loaded in `BaseLayout.astro`:
-
-```html
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400&f[]=khand@700&display=swap" rel="stylesheet">
-```
-
-| Font | Usage |
-|------|--------|
-| Switzer | Body text |
-| Khand (700) | Headings, labels, navigation, emphasis |
-
-CSS variables live in `src/styles/global.css` under `:root`.
-
-### What to avoid
-
-- Unnecessary animations and hover gimmicks
-- Dashboard-style UI, clutter, overengineering
-- Extra dependencies or React unless absolutely required
-
 ## Site structure
 
 File-based routing in `src/pages/` and Markdown content in `src/content/`:
