@@ -2,17 +2,11 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { withBase } from '../../utils/paths';
+import { formatDate } from '../../utils/date';
 
 const thoughts = (await getCollection('thoughts')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
-
-const formatDate = (date: Date) =>
-  date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
 ---
 
 <BaseLayout
