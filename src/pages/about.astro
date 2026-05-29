@@ -20,143 +20,235 @@ import ContactForm from "../components/ContactForm.astro";
 
   <section>
     <div class="container">
-      <div class="content-block">
-        <h2>Biography</h2>
-        <p>
-          Mao Ratha is a writer and entrepreneur who has spent the last
-          decade building at the intersection of content and commerce. What
-          started as a side project—a weekly newsletter and a handful of
-          podcast episodes—grew into a studio serving tens of thousands of
-          independent creators.
-        </p>
-        <p>
-          Their work spans education, media, and digital products. Mao is known
-          for a direct voice, minimal design sensibility, and a bias toward
-          shipping over strategizing. They live and work remotely, splitting
-          time between writing, building, and long walks without headphones.
-        </p>
-      </div>
+      <div class="bento-grid">
+        <!-- Header Card: Biography -->
+        <div class="bento-card bento-card--full">
+          <h3>Biography</h3>
+          <p>
+            Mao Ratha is a writer and entrepreneur who has spent the last
+            decade building at the intersection of content and commerce. What
+            started as a side project—a weekly newsletter and a handful of
+            podcast episodes—grew into a studio serving tens of thousands of
+            independent creators.
+          </p>
+          <p>
+            Their work spans education, media, and digital products. Mao is known
+            for a direct voice, minimal design sensibility, and a bias toward
+            shipping over strategizing. They live and work remotely, splitting
+            time between writing, building, and long walks without headphones.
+          </p>
+        </div>
 
-      <div class="content-block">
-        <h2>Experience</h2>
-        <ul class="experience-list">
-          <li>
-            <div>
-              <img src="/logos/canadia.jpg" alt="Canadia Bank Plc." class="company-logo" />
-              <strong>Senior UX/UI Lead | Canadia Bank Plc.</strong>
-              <span class="period">Sep 2023 – Feb 2026</span>
-              <p>
-                Hands-on with bank project, collaborating with developers, product owners, and QA. Recruited and managed a team of four designers. Oversaw UX work, including graphic and motion design.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/wing.jpg" alt="Wing Bank (Cambodia) Plc." class="company-logo" />
-              <strong>UX/UI Lead | Wing Bank (Cambodia) Plc.</strong>
-              <span class="period">July 2019 – Aug 2023</span>
-              <p>
-                Created product flows based on business and consumer needs. Kept product on trend with new creative concepts. Redesigned, brainstormed, and conducted research to improve product experience.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/mra.jpg" alt="Melon Rouge Agency" class="company-logo" />
-              <strong>Digital UX/UI Designer | Melon Rouge Agency</strong>
-              <span class="period">Mar 2017 – Jun 2019</span>
-              <p>
-                Designed mobile apps, websites, and communication for agency clients. Collaborated with creative directors to achieve client satisfaction. Clients: UNDP, UNICEF, NSSF, Huotraco, Pointer, Zoom, Java Cafe, Jotun, Decathlon, Ganador, Marie Stopes, Fauna & Flora, Sosoro, Caviar & Traditions, Prokout, Presence, Number One.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/softbloom.jpg" alt="Softbloom Co., LTD." class="company-logo" />
-              <strong>Frontend UX/UI Designer | Softbloom Co., LTD.</strong>
-              <span class="period">Aug 2014 – Jan 2017</span>
-              <p>
-                Redesigned and optimized group product UX/UI. Supported front-end development.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/camtech.jpg" alt="Camtech Web Solution" class="company-logo" />
-              <strong>Web Designer | Content Creator | Camtech Web Solution</strong>
-              <span class="period">Dec 2013 – May 2014</span>
-              <p>
-                Designed web templates and stationery for clients. Created and designed content for business.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/potential.jpg" alt="Potential ASIA Group Ltd" class="company-logo" />
-              <strong>Intern Web Developer | Designer | Potential ASIA Group Ltd</strong>
-              <span class="period">Sep 2013 – Nov 2013</span>
-              <p>
-                Created mobile applications and websites.
-              </p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <img src="/logos/tv9.jpg" alt="CTV9 HD Cambodia" class="company-logo" />
-              <strong>Designer | Editor | CTV9 HD Cambodia</strong>
-              <span class="period">May 2011 – Nov 2011</span>
-              <p>
-                Created and edited footage for film, newscast, and television.
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <!-- Tech Stack Card -->
+        <div class="bento-card">
+          <h3>Tech Stack</h3>
+          <div class="tech-stack">
+            <span class="tech-pill">Figma</span>
+            <span class="tech-pill">Adobe XD</span>
+            <span class="tech-pill">Sketch</span>
+            <span class="tech-pill">Photoshop</span>
+            <span class="tech-pill">Illustrator</span>
+            <span class="tech-pill">HTML/CSS</span>
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Vue.js</span>
+            <span class="tech-pill">Astro</span>
+          </div>
+        </div>
 
-      <div class="content-block">
-        <h2>Principles</h2>
-        <ul class="principles-list">
-          <li>
-            <strong>Ship over strategize</strong>
-            <p>
-              Momentum beats perfection. The best way to learn what works is to
-              put something in front of real people.
-            </p>
-          </li>
-          <li>
-            <strong>Clarity is a feature</strong>
-            <p>
-              Simple language, clean design, and honest positioning aren't
-              compromises—they're competitive advantages.
-            </p>
-          </li>
-          <li>
-            <strong>Build for the long game</strong>
-            <p>
-              Audience, reputation, and craft compound over years. Optimize for
-              trust, not transactions.
-            </p>
-          </li>
-          <li>
-            <strong>Own your distribution</strong>
-            <p>
-              Email lists, owned products, and direct relationships matter more
-              than algorithmic reach.
-            </p>
-          </li>
-        </ul>
+        <!-- Principles Card -->
+        <div class="bento-card">
+          <h3>Principles</h3>
+          <ul class="icon-list">
+            <li>Ship over strategize</li>
+            <li>Clarity is a feature</li>
+            <li>Build for the long game</li>
+            <li>Own your distribution</li>
+          </ul>
+        </div>
+
+        <!-- Experience Card -->
+        <div class="bento-card bento-card--full">
+          <h3>Experience</h3>
+          <ul class="experience-list">
+            <li>
+              <div>
+                <img src="/logos/canadia.jpg" alt="Canadia Bank Plc." class="company-logo" />
+                <strong>Senior UX/UI Lead | Canadia Bank Plc.</strong>
+                <span class="period">Sep 2023 – Feb 2026</span>
+                <p>
+                  Hands-on with bank project, collaborating with developers, product owners, and QA. Recruited and managed a team of four designers. Oversaw UX work, including graphic and motion design.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/wing.jpg" alt="Wing Bank (Cambodia) Plc." class="company-logo" />
+                <strong>UX/UI Lead | Wing Bank (Cambodia) Plc.</strong>
+                <span class="period">July 2019 – Aug 2023</span>
+                <p>
+                  Created product flows based on business and consumer needs. Kept product on trend with new creative concepts. Redesigned, brainstormed, and conducted research to improve product experience.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/mra.jpg" alt="Melon Rouge Agency" class="company-logo" />
+                <strong>Digital UX/UI Designer | Melon Rouge Agency</strong>
+                <span class="period">Mar 2017 – Jun 2019</span>
+                <p>
+                  Designed mobile apps, websites, and communication for agency clients. Collaborated with creative directors to achieve client satisfaction.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/softbloom.jpg" alt="Softbloom Co., LTD." class="company-logo" />
+                <strong>Frontend UX/UI Designer | Softbloom Co., LTD.</strong>
+                <span class="period">Aug 2014 – Jan 2017</span>
+                <p>
+                  Redesigned and optimized group product UX/UI. Supported front-end development.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/camtech.jpg" alt="Camtech Web Solution" class="company-logo" />
+                <strong>Web Designer | Content Creator | Camtech Web Solution</strong>
+                <span class="period">Dec 2013 – May 2014</span>
+                <p>
+                  Designed web templates and stationery for clients. Created and designed content for business.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/potential.jpg" alt="Potential ASIA Group Ltd" class="company-logo" />
+                <strong>Intern Web Developer | Designer | Potential ASIA Group Ltd</strong>
+                <span class="period">Sep 2013 – Nov 2013</span>
+                <p>
+                  Created mobile applications and websites.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <img src="/logos/tv9.jpg" alt="CTV9 HD Cambodia" class="company-logo" />
+                <strong>Designer | Editor | CTV9 HD Cambodia</strong>
+                <span class="period">May 2011 – Nov 2011</span>
+                <p>
+                  Created and edited footage for film, newscast, and television.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Reading List Card -->
+        <div class="bento-card">
+          <h3>Reading List</h3>
+          <ul class="icon-list">
+            <li>Design of Everyday Things</li>
+            <li>Don't Make Me Think</li>
+            <li>The Design of Everyday Things</li>
+            <li>Refactoring UI</li>
+            <li>Thinking, Fast and Slow</li>
+          </ul>
+        </div>
+
+        <!-- Daily Tools Card -->
+        <div class="bento-card">
+          <h3>Daily Tools</h3>
+          <ul class="icon-list">
+            <li>Figma</li>
+            <li>Notion</li>
+            <li>Linear</li>
+            <li>VS Code</li>
+            <li>Slack</li>
+          </ul>
+        </div>
+
+        <!-- Favorites Card -->
+        <div class="bento-card">
+          <h3>Favorites</h3>
+          <ul class="icon-list">
+            <li>Coffee</li>
+            <li>Long walks</li>
+            <li>Podcasts</li>
+            <li>Minimal design</li>
+            <li>Building products</li>
+          </ul>
+        </div>
+
+        <!-- Contact Card -->
+        <div class="bento-card">
+          <h3>Contact</h3>
+          <ul class="icon-list">
+            <li>mao@example.com</li>
+            <li>Phnom Penh, Cambodia</li>
+            <li>LinkedIn</li>
+            <li>Dribbble</li>
+            <li>Twitter</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="contact" id="contact">
     <div class="container">
-      <span class="label">Contact</span>
-      <h2>Get in touch</h2>
-      <p class="lead">
-        Have a project in mind or need consulting? Let's talk.
-      </p>
-      <ContactForm id="about-contact" />
+      <div class="contact-card">
+        <div class="contact-left">
+          <span class="label">Contact</span>
+          <h2>Let's work together</h2>
+          <p class="lead">
+            Have a project in mind or need consulting? I'd love to hear about it.
+          </p>
+          <div class="contact-persona">
+            <img
+              src="/ratha.png"
+              alt="Mao Ratha"
+              loading="lazy"
+            />
+          </div>
+          <ul class="contact-services">
+            <li>UX Strategy</li>
+            <li>UI Design</li>
+            <li>Design Systems</li>
+            <li>User Research</li>
+            <li>Product Consulting</li>
+          </ul>
+          <p class="contact-hours">M-F, 9am-5pm EST</p>
+          <div class="contact-social">
+            <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://dribbble.com" aria-label="Dribbble" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-5.38c-3.72-3.85-8.04-4.26-11.56-2.81m13.86-5.35c-4.45-2.58-9.67-1.73-14.08 2.53"></path>
+              </svg>
+            </a>
+            <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="https://github.com" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <ContactForm id="about-contact" />
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>

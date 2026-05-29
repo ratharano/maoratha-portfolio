@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../utils/paths';
+import ThemeToggle from './ThemeToggle.astro';
 
 const navItems = [
   { href: withBase('/'), label: 'Home' },
@@ -14,6 +15,13 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
   <div class="container">
     <a href={withBase('/')} class="site-logo">Mao Ratha</a>
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" type="button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
     <nav class="site-nav" aria-label="Main navigation">
       <ul>
         {
@@ -33,5 +41,87 @@ const currentPath = Astro.url.pathname;
         }
       </ul>
     </nav>
+    <ThemeToggle />
   </div>
 </header>
+
+<style>
+  .mobile-menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: var(--space-sm);
+  }
+
+  @media (max-width: 48rem) {
+    .mobile-menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--color-bg);
+      border-left: 1px solid var(--color-border);
+      padding: var(--space-2xl);
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .site-nav.open {
+      right: 0;
+    }
+
+    .site-nav ul {
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .site-nav li {
+      width: 100%;
+    }
+
+    .site-nav a {
+      display: block;
+      padding: var(--space-md);
+      border-radius: var(--space-md);
+    }
+
+    .site-nav a:hover {
+      background: var(--color-surface);
+    }
+  }
+</style>
+
+<script>
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.site-nav');
+
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!nav.contains(e.target as Node) && !menuToggle.contains(e.target as Node)) {
+        nav.classList.remove('open');
+      }
+    });
+
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+      });
+    });
+  }
+</script>

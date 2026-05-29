@@ -3,10 +3,15 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { withBase } from '../utils/paths';
+import { formatDate } from '../utils/date';
 
 const projects = (await getCollection('projects'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 2);
+  .slice(0, 3);
+
+const thoughts = (await getCollection('thoughts'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout
@@ -14,6 +19,7 @@ const projects = (await getCollection('projects'))
   description="Senior UX/UI Designer and leader. Mao Ratha builds clear products, publishes thoughtful writing, and helps creators through education and media."
   ogTitle="Mao Ratha — UX/UI Designer & Leader"
 >
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero__inner">
       <div class="hero__content">
@@ -39,30 +45,12 @@ const projects = (await getCollection('projects'))
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <span class="label">Positioning</span>
-        <h2>Clarity over complexity.</h2>
-      </div>
-      <p class="about-intro pull-quote">
-        For over a decade, I've worked at the intersection of design,
-        product, and education. I believe the best work is simple, honest, and
-        built to last—whether that's an interface, a case study, or a note in
-        the garden.
-      </p>
-      <p>
-        This site is a snapshot of that work. Deeper writing lives in
-        <a href={withBase('/thoughts')}>Thoughts</a>.
-      </p>
-    </div>
-  </section>
-
+  <!-- Work Section -->
   <section>
     <div class="container">
       <div class="section-header">
         <span class="label">Selected work</span>
-        <h2>Projects</h2>
+        <h2>Work</h2>
       </div>
       <div class="project-preview-grid">
         {
@@ -84,14 +72,189 @@ const projects = (await getCollection('projects'))
     </div>
   </section>
 
+  <!-- Experience Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Career</span>
+        <h2>Experience</h2>
+      </div>
+      <ul class="experience-list">
+        <li>
+          <div>
+            <img src="/logos/canadia.jpg" alt="Canadia Bank Plc." class="company-logo" />
+            <strong>Senior UX/UI Lead | Canadia Bank Plc.</strong>
+            <span class="period">Sep 2023 – Feb 2026</span>
+            <p>
+              Hands-on with bank project, collaborating with developers, product owners, and QA. Recruited and managed a team of four designers. Oversaw UX work, including graphic and motion design.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img src="/logos/wing.jpg" alt="Wing Bank (Cambodia) Plc." class="company-logo" />
+            <strong>UX/UI Lead | Wing Bank (Cambodia) Plc.</strong>
+            <span class="period">July 2019 – Aug 2023</span>
+            <p>
+              Created product flows based on business and consumer needs. Kept product on trend with new creative concepts. Redesigned, brainstormed, and conducted research to improve product experience.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <img src="/logos/mra.jpg" alt="Melon Rouge Agency" class="company-logo" />
+            <strong>Digital UX/UI Designer | Melon Rouge Agency</strong>
+            <span class="period">Mar 2017 – Jun 2019</span>
+            <p>
+              Designed mobile apps, websites, and communication for agency clients. Collaborated with creative directors to achieve client satisfaction.
+            </p>
+          </div>
+        </li>
+      </ul>
+      <p class="mt-3xl">
+        <a href={withBase('/about')} class="text-link">View full experience</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Thought Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">Writing</span>
+        <h2>Thoughts</h2>
+      </div>
+      <ul class="thought-list">
+        {
+          thoughts.map((entry) => (
+            <li class="thought-item">
+              <article>
+                <h2>
+                  <a href={withBase(`/thoughts/${entry.id}/`)}>
+                    {entry.data.title}
+                  </a>
+                </h2>
+                <p class="muted">
+                  <time datetime={entry.data.date.toISOString()}>
+                    {formatDate(entry.data.date, true)}
+                  </time>
+                </p>
+                {entry.data.tags.length > 0 && (
+                  <ul class="tag-list" aria-label="Tags">
+                    {entry.data.tags.map((tag) => (
+                      <li>{tag}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-3xl">
+        <a href={withBase('/thoughts')} class="text-link">View all thoughts</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <span class="label">About</span>
+        <h2>About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>
+            Mao Ratha is a writer and entrepreneur who has spent the last
+            decade building at the intersection of content and commerce. What
+            started as a side project—a weekly newsletter and a handful of
+            podcast episodes—grew into a studio serving tens of thousands of
+            independent creators.
+          </p>
+          <p>
+            Their work spans education, media, and digital products. Mao is known
+            for a direct voice, minimal design sensibility, and a bias toward
+            shipping over strategizing. They live and work remotely, splitting
+            time between writing, building, and long walks without headphones.
+          </p>
+        </div>
+        <div class="about-skills">
+          <h3>Skills & Tools</h3>
+          <ul class="skills-list">
+            <li>UX/UI Design</li>
+            <li>Design Systems</li>
+            <li>User Research</li>
+            <li>Prototyping</li>
+            <li>Figma</li>
+            <li>Adobe Creative Suite</li>
+            <li>Team Leadership</li>
+            <li>Product Strategy</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-3xl">
+        <a href={withBase('/about')} class="text-link">Learn more about me</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer/Contact Section -->
   <section class="contact" id="contact">
     <div class="container">
-      <span class="label">Contact</span>
-      <h2>Let's work together</h2>
-      <p class="lead">
-        Have a UX/UI project or need consulting? I'd love to hear about it.
-      </p>
-      <ContactForm />
+      <div class="contact-card">
+        <div class="contact-left">
+          <span class="label">Contact</span>
+          <h2>Let's work together</h2>
+          <p class="lead">
+            Have a UX/UI project or need consulting? I'd love to hear about it.
+          </p>
+          <div class="contact-persona">
+            <img
+              src="/ratha.png"
+              alt="Mao Ratha"
+              loading="lazy"
+            />
+          </div>
+          <ul class="contact-services">
+            <li>UX Strategy</li>
+            <li>UI Design</li>
+            <li>Design Systems</li>
+            <li>User Research</li>
+            <li>Product Consulting</li>
+          </ul>
+          <p class="contact-hours">M-F, 9am-5pm EST</p>
+          <div class="contact-social">
+            <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="https://dribbble.com" aria-label="Dribbble" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-5.38c-3.72-3.85-8.04-4.26-11.56-2.81m13.86-5.35c-4.45-2.58-9.67-1.73-14.08 2.53"></path>
+              </svg>
+            </a>
+            <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="https://github.com" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right">
+          <ContactForm />
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
