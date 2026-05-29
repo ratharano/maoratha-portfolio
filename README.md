@@ -41,3 +41,5 @@ Live URL: `https://ratharano.github.io/maoratha-portfolio/`
 - [Astro](https://astro.build) (static site generation, content collections)
 - Plain CSS (`src/styles/global.css`)
 - Fonts: Switzer (body), Khand (headings) via [Fontshare](https://fontshare.com)
+
+<!-- Force rebuild for Cloudflare Pages cache clear -->
