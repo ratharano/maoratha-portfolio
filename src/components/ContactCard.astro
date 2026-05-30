@@ -1,0 +1,39 @@
+---
+import ContactForm from './ContactForm.astro';
+import SocialIcons from './SocialIcons.astro';
+
+interface Props {
+  id?: string;
+  title?: string;
+  lead?: string;
+}
+
+const { id = 'contact', title = "Let's work together", lead = 'Have a UX/UI project or need consulting? I\'d love to hear about it.' } = Astro.props;
+---
+
+<section class="contact" id={id}>
+  <div class="container">
+    <div class="contact-card">
+      <div class="contact-left">
+        <span class="label">Contact</span>
+        <h2>{title}</h2>
+        <p class="lead">{lead}</p>
+        <div class="contact-persona">
+          <img src="/ratha.png" alt="Mao Ratha" loading="lazy" />
+        </div>
+        <ul class="contact-services">
+          <li>UX Strategy</li>
+          <li>UI Design</li>
+          <li>Design Systems</li>
+          <li>User Research</li>
+          <li>Product Consulting</li>
+        </ul>
+        <p class="contact-hours">M-F, 9am-5pm EST</p>
+        <SocialIcons />
+      </div>
+      <div class="contact-right">
+        <ContactForm id={id} />
+      </div>
+    </div>
+  </div>
+</section>

@@ -281,7 +281,6 @@ section:first-of-type {
 .site-nav a:hover,
 .site-nav a[aria-current="page"] {
   color: var(--color-accent);
-  text-decoration: none;
 }
 
 /* Footer */
@@ -313,7 +312,7 @@ section:first-of-type {
   letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--color-text-secondary);
-  transition: color 0.2s ease, background-color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .site-footer nav a:hover {
@@ -547,7 +546,7 @@ section:first-of-type {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--space-xl);
-  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .project-preview:hover {
@@ -611,7 +610,7 @@ section:first-of-type {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-2xl);
-  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .contact-card:hover {
@@ -662,7 +661,6 @@ section:first-of-type {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--color-border);
-  transition: border-color 0.3s ease;
 }
 
 .contact-services {
@@ -742,7 +740,7 @@ section:first-of-type {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   border-radius: var(--space-md);
-  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 .contact-form input::placeholder,
@@ -808,7 +806,7 @@ section:first-of-type {
   background: var(--color-bg);
   color: var(--color-text-primary);
   border-radius: var(--space-md);
-  transition: border-color 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.2s ease;
 }
 
 .newsletter-form input[type="email"]::placeholder {
@@ -913,7 +911,7 @@ section:first-of-type {
   border: 1px solid var(--color-border);
   border-radius: var(--space-2xl);
   padding: var(--space-xl);
-  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .bento-card:hover {
@@ -1047,7 +1045,7 @@ section:first-of-type {
   border: 1px solid var(--color-border);
   border-radius: var(--space-md);
   color: var(--color-text-secondary);
-  transition: all 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .skills-list li:hover {

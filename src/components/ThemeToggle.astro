@@ -115,43 +115,24 @@
   const DARK_THEME = 'dark';
   const LIGHT_THEME = 'light';
 
-  function getSystemTheme() {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK_THEME : LIGHT_THEME;
-  }
-
-  function getStoredTheme() {
-    return localStorage.getItem(THEME_KEY);
-  }
-
-  function setTheme(theme: string) {
+  const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK_THEME : LIGHT_THEME;
+  const getStoredTheme = () => localStorage.getItem(THEME_KEY);
+  const setTheme = (theme: string) => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(THEME_KEY, theme);
-  }
+  };
 
-  function toggleTheme() {
+  const toggleTheme = () => {
     const currentTheme = document.documentElement.getAttribute('data-theme') || getSystemTheme();
-    const newTheme = currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME;
-    setTheme(newTheme);
-  }
+    setTheme(currentTheme === DARK_THEME ? LIGHT_THEME : DARK_THEME);
+  };
 
-  // Initialize theme on load
   const storedTheme = getStoredTheme();
-  if (storedTheme) {
-    setTheme(storedTheme);
-  } else {
-    setTheme(getSystemTheme());
-  }
+  setTheme(storedTheme || getSystemTheme());
 
-  // Listen for system theme changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!getStoredTheme()) {
-      setTheme(e.matches ? DARK_THEME : LIGHT_THEME);
-    }
+    if (!getStoredTheme()) setTheme(e.matches ? DARK_THEME : LIGHT_THEME);
   });
 
-  // Add click handler to button
-  const button = document.querySelector('.theme-toggle');
-  if (button) {
-    button.addEventListener('click', toggleTheme);
-  }
+  document.querySelector('.theme-toggle')?.addEventListener('click', toggleTheme);
 </script>
